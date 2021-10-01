@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,19 +20,17 @@ import java.util.List;
 @Entity
 @ToString
 @Builder
-public class Sector {
+public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String name;
+    private String username;
 
     @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Sector parent;
+    @JoinColumn(name = "sector_id", referencedColumnName = "id")
+    private Sector sector;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-    private List<Sector> children;
+    private Boolean agreement;
 }

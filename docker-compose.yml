@@ -1,0 +1,22 @@
+version: '3'
+services:
+  sectors-db:
+    container_name: sectors-db
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+
+    environment:
+      - POSTGRES_PASSWORD=user
+      - POSTGRES_USER=user
+      - POSTGRES_DB=sectors-db
+  sectors-be:
+    container_name: sectors-app
+    build: sectors-app-be/
+    ports:
+      - "8080:8080"
+    env_file:
+      - sectors-app-be/.env
+    depends_on:
+      - sectors-db

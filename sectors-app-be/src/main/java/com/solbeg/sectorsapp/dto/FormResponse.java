@@ -5,14 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-public class SectorResponse {
+public class FormResponse {
     private Long id;
-    private String name;
-    private List<SectorResponse> children;
+    private String username;
+    private Long sectorId;
+    private Boolean agreement;
 }

@@ -7,6 +7,6 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.xml
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/sector_db
-    username: root
-    password: root
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/sectors-db}
+    username: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:user}
