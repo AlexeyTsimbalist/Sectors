@@ -1,0 +1,20 @@
+
+
+<form #form="ngForm">
+  <div>
+    <label for="name">Name</label>
+    <input required ngModel name="name" #name="ngModel" id="name" type="text" class="form-control">
+    <div *ngIf="name.touched && !name.valid">Name is required</div>
+  </div>
+  <div>
+    <label for="sector">Sectors</label>
+    <select [(ngModel)]="selectedSector" id="sector"> // value is an object
+      <option *ngFor="let sector of extractedSectors" [ngValue]="sector">{{sector.name}}</option>
+    </select>
+  </div>
+  <div>
+    <input type="checkbox" id="agreement" name="agreement">
+    <label for="agreement">Agree to terms</label>
+  </div>
+  <button type="submit" [disabled]="!form.valid" (click)="sendForm()">Submit</button>
+</form>
