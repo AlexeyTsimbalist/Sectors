@@ -20,3 +20,8 @@ services:
       - task-backend/.env
     depends_on:
       - task-db
+  task-frontend:
+    container_name: task-frontend
+    build: frontend/
+    ports:
+      - "8081:80"
