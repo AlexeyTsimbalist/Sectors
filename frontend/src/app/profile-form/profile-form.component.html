@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <h4>Please enter your name and pick the Sectors you are currently involved in. </h4>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="profile-group">
+      <input formControlName="name" type="text" placeholder="Name">
+      <small class="text-danger" *ngIf="profileForm.get('name')?.touched
+                                        && profileForm.get('name')?.invalid">Name is required</small>
+    </div>
+    <div class="profile-group">
+      <select class="custom-select" formControlName="industry" size="5">
+        <option *ngFor="let industry of extractedIndustries" [ngValue]="industry">{{industry.name}}</option>
+      </select>
+    </div>
+    <div class="profile-check">
+      <input class="profile-check-input" formControlName="agreement" type="checkbox">
+      <label class="profile-check-label">Agree to terms</label>
+
+      <small class="text-danger" *ngIf="profileForm.get('agreement')?.touched
+      && profileForm.get('agreement')?.invalid"> Agreement is required</small>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">Save</button>
+  </form>
+
+  {{profileForm.value | json}}
+</div>

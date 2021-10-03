@@ -1,0 +1,12 @@
+server:
+  servlet:
+    context-path: /test-task
+
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/task-db}
+    username: ${DB_USERNAME:user}
+    password: ${DB_PASSWORD:user}

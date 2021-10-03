@@ -1,4 +1,4 @@
-# Sectors-app
+# Test task
 
 + Run 'make build' to build application
-+ Swagger: http://localhost:8080/sectors-app/swagger-ui.html
++ Swagger: http://localhost:8080/task-backend/swagger-ui.html

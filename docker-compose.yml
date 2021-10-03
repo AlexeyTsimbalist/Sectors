@@ -1,7 +1,7 @@
 version: '3'
 services:
-  sectors-db:
-    container_name: sectors-db
+  task-db:
+    container_name: task-db
     image: postgres
     restart: always
     ports:
@@ -10,13 +10,13 @@ services:
     environment:
       - POSTGRES_PASSWORD=user
       - POSTGRES_USER=user
-      - POSTGRES_DB=sectors-db
-  sectors-be:
-    container_name: sectors-app
-    build: sectors-app-be/
+      - POSTGRES_DB=task-db
+  task-backend:
+    container_name: task-backend
+    build: task-backend/
     ports:
       - "8080:8080"
     env_file:
-      - sectors-app-be/.env
+      - task-backend/.env
     depends_on:
-      - sectors-db
+      - task-db

@@ -1,6 +1,6 @@
 build:
-	echo "Building sectors-app"
+	echo "Building application"
 	docker-compose up --build --detach
 down:
-	echo "Removing sectors-app"
+	echo "Removing application"
 	docker-compose down
