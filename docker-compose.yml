@@ -22,6 +22,6 @@ services:
       - task-db
   task-frontend:
     container_name: task-frontend
-    build: frontend/
+    build: task-frontend/
     ports:
       - "8081:80"
